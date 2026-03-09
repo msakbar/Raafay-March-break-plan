@@ -66,6 +66,23 @@ Activities and ideas for Raafay's March Break 2026 (age 4, GTA area).
 - **Notes:** Critically-acclaimed puppet show based on Eric Carle's book.
 - **Status:** 🔍
 
+### Puppet Festival Mississauga (Crane Creations)
+- **Link:** https://cranecreations.ca/puppet-festival-mississauga-2026-program/
+- **Location:** Various venues in Mississauga (Living Arts Centre, Burnhamthorpe Library, Halo Espresso Bar)
+- **Type:** Indoor
+- **Cost:** Varies by show (Family Day Pass: $110 for 3 shows for up to 4 people on Mar 21)
+- **Duration:** ~50 min per show
+- **Showtimes:**
+  - **Woods — A Puppet Show for Young Kids** (ages 4+, non-verbal, from Quebec): Mar 21 at 10:00 AM, Burnhamthorpe Library — pieces of wood transform into creatures. **Best fit for Raafay!**
+  - Under the Stars (Hansel & Gretel retelling): Mar 14 at 2:00 PM & 6:30 PM, Living Arts Centre
+  - The Samurai's Daughter (string marionettes): Mar 20-21
+  - Goosefeather Kamishibai (puppet show in a cafe, coffee included!): Mar 21-22 at 10:00 AM, Halo Espresso Bar
+  - Puppets Around The World exhibit (drop-in): Mar 19-22, Burnhamthorpe Library
+  - Aragoz Puppet Making Workshop: Mar 16-20 at 10:00 AM
+- **Age suitability:** Varies by show — Woods is 4+, others vary
+- **Notes:** International puppet festival with shows from Quebec, Egypt, Mexico, Israel. The "Woods" show is non-verbal and perfect for young kids. Could pair with the Family Day Pass on Mar 21 for multiple shows.
+- **Status:** 💡
+
 ### Sonshine & Broccoli (FREE)
 - **Location:** Promenade Shopping Centre, Thornhill
 - **Type:** Indoor
