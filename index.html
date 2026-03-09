@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raafay's March Break 2026</title>
+<style>
+  :root {
+    --blue: #4a90d9;
+    --green: #27ae60;
+    --orange: #e67e22;
+    --red: #e74c3c;
+    --purple: #8e44ad;
+    --teal: #16a085;
+    --pink: #e84393;
+    --gray: #7f8c8d;
+    --bg: #f5f7fa;
+    --card-bg: #ffffff;
+    --text: #2c3e50;
+    --text-light: #6c7a89;
+    --border: #e0e6ed;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  header {
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    color: white;
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+  }
+
+  header p {
+    opacity: 0.9;
+    font-size: 1.05rem;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+
+  /* Tab navigation */
+  .tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 0;
+    overflow-x: auto;
+  }
+
+  .tab-btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    background: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-light);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* Schedule */
+  .day-block {
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+
+  .day-header {
+    padding: 0.75rem 1.25rem;
+    font-weight: 700;
+    font-size: 1.05rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .day-header.confirmed { background: #eafaf1; color: var(--green); }
+  .day-header.open { background: #fef9e7; color: var(--orange); }
+
+  .day-slots {
+    padding: 1rem 1.25rem;
+  }
+
+  .slot {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    align-items: baseline;
+  }
+
+  .slot + .slot { border-top: 1px dashed var(--border); }
+
+  .slot-time {
+    font-weight: 600;
+    color: var(--text-light);
+    min-width: 100px;
+    font-size: 0.9rem;
+  }
+
+  .slot-activity { flex: 1; }
+  .slot-activity.empty { color: var(--gray); font-style: italic; }
+
+  .slot-status {
+    font-size: 0.85rem;
+    padding: 0.15rem 0.6rem;
+    border-radius: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .status-confirmed { background: #d5f5e3; color: #1e8449; }
+  .status-open { background: #fdebd0; color: #ca6f1e; }
+
+  /* Activity cards */
+  .category-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 1.5rem 0 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .category-icon {
+    font-size: 1.4rem;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1rem;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 1.25rem;
+    transition: box-shadow 0.2s;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+
+  .card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .card-title a {
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .card-title a:hover { color: var(--blue); }
+
+  .badge {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .badge-confirmed { background: #d5f5e3; color: #1e8449; }
+  .badge-idea { background: #fef9e7; color: #b7950b; }
+  .badge-research { background: #ebf5fb; color: #2e86c1; }
+  .badge-free { background: #d5f5e3; color: #1e8449; }
+
+  .card-details {
+    font-size: 0.9rem;
+    color: var(--text-light);
+  }
+
+  .card-details .detail {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.2rem 0;
+  }
+
+  .detail-label {
+    font-weight: 600;
+    color: var(--text);
+    min-width: 70px;
+  }
+
+  .card-notes {
+    margin-top: 0.6rem;
+    padding-top: 0.6rem;
+    border-top: 1px dashed var(--border);
+    font-size: 0.88rem;
+    color: var(--text-light);
+  }
+
+  .highlight {
+    background: #fff9c4;
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+
+  .sub-shows {
+    margin-top: 0.4rem;
+    padding-left: 0.75rem;
+    border-left: 2px solid var(--border);
+    font-size: 0.85rem;
+  }
+
+  .sub-shows li {
+    list-style: none;
+    padding: 0.15rem 0;
+  }
+
+  .sub-shows li strong { color: var(--text); }
+
+  /* Legend */
+  .legend {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--text-light);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 1.5rem; }
+    .cards { grid-template-columns: 1fr; }
+    .tabs { gap: 0.25rem; }
+    .tab-btn { padding: 0.5rem 0.8rem; font-size: 0.85rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Raafay's March Break 2026</h1>
+  <p>Age 4 &bull; Toronto / GTA &bull; March 16 &ndash; 20</p>
+</header>
+
+<div class="container">
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="schedule">Schedule</button>
+    <button class="tab-btn" data-tab="activities">All Activities</button>
+  </div>
+
+  <!-- ==================== SCHEDULE TAB ==================== -->
+  <div id="schedule" class="tab-content active">
+
+    <div class="legend">
+      <span class="legend-item"><span class="badge badge-confirmed">Confirmed</span></span>
+      <span class="legend-item"><span class="badge badge-idea">Open</span></span>
+    </div>
+
+    <!-- Monday -->
+    <div class="day-block">
+      <div class="day-header confirmed">Monday, March 16</div>
+      <div class="day-slots">
+        <div class="slot">
+          <span class="slot-time">Morning &ndash; Afternoon</span>
+          <span class="slot-activity"><strong>Joyride 150</strong> indoor bike park with Zain &mdash; 150 Bullock Dr, Markham</span>
+          <span class="slot-status status-confirmed">Confirmed</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tuesday -->
+    <div class="day-block">
+      <div class="day-header open">Tuesday, March 17</div>
+      <div class="day-slots">
+        <div class="slot">
+          <span class="slot-time">Morning</span>
+          <span class="slot-activity empty">Open</span>
+          <span class="slot-status status-open">Open</span>
+        </div>
+        <div class="slot">
+          <span class="slot-time">Afternoon</span>
+          <span class="slot-activity empty">Open</span>
+          <span class="slot-status status-open">Open</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wednesday -->
+    <div class="day-block">
+      <div class="day-header open">Wednesday, March 18</div>
+      <div class="day-slots">
+        <div class="slot">
+          <span class="slot-time">Morning</span>
+          <span class="slot-activity empty">Open</span>
+          <span class="slot-status status-open">Open</span>
+        </div>
+        <div class="slot">
+          <span class="slot-time">Afternoon</span>
+          <span class="slot-activity empty">Open</span>
+          <span class="slot-status status-open">Open</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thursday -->
+    <div class="day-block">
+      <div class="day-header open">Thursday, March 19</div>
+      <div class="day-slots">
+        <div class="slot">
+          <span class="slot-time">Morning</span>
+          <span class="slot-activity empty">Open</span>
+          <span class="slot-status status-open">Open</span>
+        </div>
+        <div class="slot">
+          <span class="slot-time">Afternoon</span>
+          <span class="slot-activity empty">Open</span>
+          <span class="slot-status status-open">Open</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Friday -->
+    <div class="day-block">
+      <div class="day-header open">Friday, March 20</div>
+      <div class="day-slots">
+        <div class="slot">
+          <span class="slot-time">Morning</span>
+          <span class="slot-activity empty">Open</span>
+          <span class="slot-status status-open">Open</span>
+        </div>
+        <div class="slot">
+          <span class="slot-time">Afternoon</span>
+          <span class="slot-activity empty">Open</span>
+          <span class="slot-status status-open">Open</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ==================== ACTIVITIES TAB ==================== -->
+  <div id="activities" class="tab-content">
+
+    <div class="legend">
+      <span class="legend-item"><span class="badge badge-confirmed">Confirmed</span></span>
+      <span class="legend-item"><span class="badge badge-idea">Idea</span></span>
+      <span class="legend-item"><span class="badge badge-research">Needs Research</span></span>
+      <span class="legend-item"><span class="badge badge-free">FREE</span></span>
+    </div>
+
+    <!-- Active Play -->
+    <div class="category-title"><span class="category-icon">&#127938;</span> Active Play</div>
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-title">
+          <a href="https://www.joyride150.com/" target="_blank">Joyride 150 Indoor Bike Park</a>
+          <span class="badge badge-confirmed">Confirmed</span>
+        </div>
+        <div class="card-details">
+          <div class="detail"><span class="detail-label">Location</span> 150 Bullock Dr, Markham</div>
+          <div class="detail"><span class="detail-label">Cost</span> Free entry under 4 / Rental bikes $14.99 (6 &amp; under)</div>
+          <div class="detail"><span class="detail-label">Duration</span> Half day+</div>
+          <div class="detail"><span class="detail-label">Ages</span> 2+</div>
+          <div class="detail"><span class="detail-label">When</span> <span class="highlight">Monday March 16</span></div>
+        </div>
+        <div class="card-notes">Going with friend Zain. Bring socks. Helmets required (available to rent). Pump tracks, foam pit, beginner sections.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <a href="https://www.legolanddiscoverycentre.com/toronto/" target="_blank">LEGOLAND Discovery Centre</a>
+          <span class="badge badge-idea">Idea</span>
+        </div>
+        <div class="card-details">
+          <div class="detail"><span class="detail-label">Location</span> Vaughan Mills, Vaughan</div>
+          <div class="detail"><span class="detail-label">Cost</span> ~$30-35/person</div>
+          <div class="detail"><span class="detail-label">Duration</span> 2-3 hours</div>
+          <div class="detail"><span class="detail-label">Ages</span> 3-10 (ideal for 4-5)</div>
+        </div>
+        <div class="card-notes">Rides, 4D cinema, build &amp; play areas, millions of LEGO bricks. Can get busy during March break &mdash; book online in advance.</div>
+      </div>
+
+    </div>
+
+    <!-- Shows & Performances -->
+    <div class="category-title"><span class="category-icon">&#127917;</span> Shows &amp; Performances</div>
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-title">
+          <a href="https://www.youngpeoplestheatre.org/" target="_blank">Love You Forever &hellip; and More Munsch</a>
+          <span class="badge badge-idea">Idea</span>
+        </div>
+        <div class="card-details">
+          <div class="detail"><span class="detail-label">Location</span> Young People's Theatre, 165 Front St E, Toronto</div>
+          <div class="detail"><span class="detail-label">Duration</span> ~1 hour</div>
+          <div class="detail"><span class="detail-label">When</span> Feb 19 &ndash; Mar 21, 2026</div>
+          <div class="detail"><span class="detail-label">Ages</span> 4-9</div>
+        </div>
+        <div class="card-notes">Five Robert Munsch classics including The Paper Bag Princess and Love You Forever. Perfect age match!</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <a href="https://www.tolive.com/" target="_blank">Peppa Pig: My First Concert</a>
+          <span class="badge badge-idea">Idea</span>
+        </div>
+        <div class="card-details">
+          <div class="detail"><span class="detail-label">Location</span> Meridian Hall, 1 Front St E, Toronto</div>
+          <div class="detail"><span class="detail-label">Duration</span> ~1 hour</div>
+          <div class="detail"><span class="detail-label">When</span> March 21, 2026 at 2:00 PM</div>
+          <div class="detail"><span class="detail-label">Ages</span> 2-6</div>
+        </div>
+        <div class="card-notes">Live musical show about instruments and music. Book early &mdash; will sell out.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          The Very Hungry Caterpillar Show
+          <span class="badge badge-research">Research</span>
+        </div>
+        <div class="card-details">
+          <div class="detail"><span class="detail-label">Location</span> TBD</div>
+          <div class="detail"><span class="detail-label">Duration</span> ~1 hour</div>
+          <div class="detail"><span class="detail-label">When</span> Starting March 16</div>
+          <div class="detail"><span class="detail-label">Ages</span> 2-6</div>
+        </div>
+        <div class="card-notes">Critically-acclaimed puppet show based on Eric Carle's book.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <a href="https://cranecreations.ca/puppet-festival-mississauga-2026-program/" target="_blank">Puppet Festival Mississauga</a>
+          <span class="badge badge-idea">Idea</span>
+        </div>
+        <div class="card-details">
+          <div class="detail"><span class="detail-label">Location</span> Various venues, Mississauga</div>
+          <div class="detail"><span class="detail-label">Cost</span> Family Day Pass: $110 for 3 shows (up to 4 people)</div>
+          <div class="detail"><span class="detail-label">Duration</span> ~50 min per show</div>
+          <div class="detail"><span class="detail-label">Ages</span> Varies (Woods is 4+)</div>
+        </div>
+        <ul class="sub-shows">
+          <li><strong>Woods</strong> (ages 4+, non-verbal): Mar 21, 10am, Burnhamthorpe Library &mdash; <span class="highlight">Best fit for Raafay!</span></li>
+          <li><strong>Under the Stars</strong> (Hansel &amp; Gretel): Mar 14, 2pm &amp; 6:30pm</li>
+          <li><strong>Samurai's Daughter</strong> (marionettes): Mar 20-21</li>
+          <li><strong>Goosefeather Kamishibai</strong> (cafe show): Mar 21-22, 10am</li>
+          <li><strong>Puppets Around The World</strong> (drop-in exhibit): Mar 19-22</li>
+        </ul>
+        <div class="card-notes">International puppet festival with shows from Quebec, Egypt, Mexico, Israel. Non-verbal "Woods" is perfect for young kids.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          Sonshine &amp; Broccoli
+          <span class="badge badge-free">FREE</span>
+        </div>
+        <div class="card-details">
+          <div class="detail"><span class="detail-label">Location</span> Promenade Shopping Centre, Thornhill</div>
+          <div class="detail"><span class="detail-label">Duration</span> ~45 min</div>
+          <div class="detail"><span class="detail-label">When</span> March 17 at 11am &amp; 1pm</div>
+          <div class="detail"><span class="detail-label">Ages</span> 2-7</div>
+        </div>
+        <div class="card-notes">Juno-nominated children's entertainers. Free! Also LEGO/Duplo play zone on March 20-21.</div>
+      </div>
+
+    </div>
+
+    <!-- Museums & Learning -->
+    <div class="category-title"><span class="category-icon">&#127963;</span> Museums &amp; Learning</div>
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-title">
+          <a href="https://www.rom.on.ca/" target="_blank">Royal Ontario Museum (ROM)</a>
+          <span class="badge badge-idea">Idea</span>
+        </div>
+        <div class="card-details">
+          <div class="detail"><span class="detail-label">Location</span> 100 Queens Park, Toronto</div>
+          <div class="detail"><span class="detail-label">Cost</span> ~$23 adults, $14 kids 4-14</div>
+          <div class="detail"><span class="detail-label">Duration</span> 2-4 hours</div>
+          <div class="detail"><span class="detail-label">Ages</span> All ages</div>
+        </div>
+        <div class="card-notes">Dinosaur gallery, bat cave, biodiversity gallery. Special March break programming likely.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <a href="https://ago.ca/" target="_blank">Art Gallery of Ontario (AGO)</a>
+          <span class="badge badge-free">FREE</span>
+        </div>
+        <div class="card-details">
+          <div class="detail"><span class="detail-label">Location</span> 317 Dundas St W, Toronto</div>
+          <div class="detail"><span class="detail-label">Cost</span> Free for 25 and under</div>
+          <div class="detail"><span class="detail-label">Duration</span> 1-3 hours</div>
+          <div class="detail"><span class="detail-label">Ages</span> All ages</div>
+        </div>
+        <div class="card-notes">Free admission for kids! Interactive art activations, maker courts, gallery scavenger hunts during March break.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <a href="https://batashoemuseum.ca/" target="_blank">Bata Shoe Museum</a>
+          <span class="badge badge-idea">Idea</span>
+        </div>
+        <div class="card-details">
+          <div class="detail"><span class="detail-label">Location</span> 327 Bloor St W, Toronto</div>
+          <div class="detail"><span class="detail-label">Cost</span> ~$14 adults, $5 kids</div>
+          <div class="detail"><span class="detail-label">Duration</span> 1-2 hours</div>
+          <div class="detail"><span class="detail-label">Ages</span> 3+</div>
+        </div>
+        <div class="card-notes">March break daily crafts &mdash; make a custom shoe pin, lace beading, collect shoe charms.</div>
+      </div>
+
+    </div>
+
+    <!-- Animals & Nature -->
+    <div class="category-title"><span class="category-icon">&#128059;</span> Animals &amp; Nature</div>
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-title">
+          <a href="https://www.ripleyaquariums.com/canada/" target="_blank">Ripley's Aquarium of Canada</a>
+          <span class="badge badge-idea">Idea</span>
+        </div>
+        <div class="card-details">
+          <div class="detail"><span class="detail-label">Location</span> 288 Bremner Blvd, Toronto</div>
+          <div class="detail"><span class="detail-label">Cost</span> ~$40 adults, $28 kids 3-5</div>
+          <div class="detail"><span class="detail-label">Duration</span> 2-3 hours</div>
+          <div class="detail"><span class="detail-label">Ages</span> All ages</div>
+        </div>
+        <div class="card-notes">Shark tunnel, jellyfish, touch tanks, stingrays. Will be busy &mdash; go early or late.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <a href="https://www.torontozoo.com/" target="_blank">Toronto Zoo</a>
+          <span class="badge badge-idea">Idea</span>
+        </div>
+        <div class="card-details">
+          <div class="detail"><span class="detail-label">Location</span> 2000 Meadowvale Rd, Scarborough</div>
+          <div class="detail"><span class="detail-label">Cost</span> ~$30 adults, $20 kids 3-12</div>
+          <div class="detail"><span class="detail-label">Duration</span> Half day+</div>
+          <div class="detail"><span class="detail-label">Ages</span> All ages</div>
+        </div>
+        <div class="card-notes">Indoor tropical pavilions great for March. PAW Patrol characters during March break. Plan which areas to prioritize.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <a href="https://www.toronto.ca/explore-enjoy/parks-gardens-beaches/zoos-and-farms/riverdale-farm/" target="_blank">Riverdale Farm</a>
+          <span class="badge badge-free">FREE</span>
+        </div>
+        <div class="card-details">
+          <div class="detail"><span class="detail-label">Location</span> 201 Winchester St, Toronto</div>
+          <div class="detail"><span class="detail-label">Duration</span> 1-2 hours</div>
+          <div class="detail"><span class="detail-label">Ages</span> All ages</div>
+        </div>
+        <div class="card-notes">Free! Pigs, goats, chickens, donkeys, cows. Great casual outing. Dress warm.</div>
+      </div>
+
+    </div>
+
+    <!-- Immersive Experiences -->
+    <div class="category-title"><span class="category-icon">&#127920;</span> Immersive Experiences</div>
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-title">
+          <a href="https://casaloma.ca/" target="_blank">Casa Loma: Imagine Dragons</a>
+          <span class="badge badge-idea">Idea</span>
+        </div>
+        <div class="card-details">
+          <div class="detail"><span class="detail-label">Location</span> 1 Austin Terrace, Toronto</div>
+          <div class="detail"><span class="detail-label">Duration</span> 1.5-2 hours</div>
+          <div class="detail"><span class="detail-label">When</span> March 14-21, 2026</div>
+          <div class="detail"><span class="detail-label">Ages</span> 3+</div>
+        </div>
+        <div class="card-notes">Castle transformed into medieval adventure with knights, dragons, live theatrical performances.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <a href="https://little-canada.ca/" target="_blank">Little Canada &mdash; Build-a-Tiny-Tree</a>
+          <span class="badge badge-idea">Idea</span>
+        </div>
+        <div class="card-details">
+          <div class="detail"><span class="detail-label">Location</span> 10 Dundas St E, Toronto</div>
+          <div class="detail"><span class="detail-label">Cost</span> ~$35 adults, $25 kids</div>
+          <div class="detail"><span class="detail-label">Duration</span> 1.5-2 hours</div>
+          <div class="detail"><span class="detail-label">When</span> March 16-20</div>
+          <div class="detail"><span class="detail-label">Ages</span> 4+</div>
+        </div>
+        <div class="card-notes">Miniature Canada exhibit + hands-on tree-building workshop. Each tree supports planting a real tree.</div>
+      </div>
+
+    </div>
+
+    <!-- Free / Low Cost -->
+    <div class="category-title"><span class="category-icon">&#127775;</span> Free / Low Cost</div>
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-title">
+          <a href="https://harbourfrontcentre.com/" target="_blank">Sugar Shack TO</a>
+          <span class="badge badge-free">FREE</span>
+        </div>
+        <div class="card-details">
+          <div class="detail"><span class="detail-label">Location</span> Harbourfront Centre, 235 Queens Quay W</div>
+          <div class="detail"><span class="detail-label">Duration</span> 1-2 hours</div>
+          <div class="detail"><span class="detail-label">When</span> <span class="highlight">March 14-15 (weekend before!)</span></div>
+          <div class="detail"><span class="detail-label">Ages</span> All ages</div>
+        </div>
+        <div class="card-notes">Maple taffy, lumberjack show, maple comfort food, interactive activities, live entertainment.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <a href="https://stacktmarket.com/" target="_blank">STACKT Market &mdash; Spring Equinox</a>
+          <span class="badge badge-free">FREE</span>
+        </div>
+        <div class="card-details">
+          <div class="detail"><span class="detail-label">Location</span> 28 Bathurst St, Toronto</div>
+          <div class="detail"><span class="detail-label">Duration</span> 1-2 hours</div>
+          <div class="detail"><span class="detail-label">When</span> March break week (daily drop-in)</div>
+          <div class="detail"><span class="detail-label">Ages</span> All ages</div>
+        </div>
+        <div class="card-notes">Free week-long festival &mdash; kids' workshops, family wellness, vendor market, live performances.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <a href="https://ontarioplace.com/" target="_blank">Lumiere: Art of Light</a>
+          <span class="badge badge-free">FREE</span>
+        </div>
+        <div class="card-details">
+          <div class="detail"><span class="detail-label">Location</span> Ontario Place / Trillium Park</div>
+          <div class="detail"><span class="detail-label">Duration</span> 1-1.5 hours</div>
+          <div class="detail"><span class="detail-label">When</span> Feb 16 &ndash; Mar 27 (evenings)</div>
+          <div class="detail"><span class="detail-label">Ages</span> All ages</div>
+        </div>
+        <div class="card-notes">Light art exhibition in Trillium Park. Best after dark. Fun evening option if weather cooperates.</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  Raafay's March Break 2026 &bull; Updated March 2026
+</footer>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+      document.querySelectorAll('.tab-content').forEach(function(c) { c.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
