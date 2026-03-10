@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Child's Life",
+    "url": "https://childslife.ca/upcoming-events/",
+    "description": "Toronto, York Region, Peel, Durham kids events, camps, and activities guide",
+    "coverage": "GTA & Southern Ontario",
+    "highlights": "Weekly event roundups, March Break guides, camp directories"
+  },
+  {
+    "name": "Family Fun Canada – Toronto",
+    "url": "https://www.familyfuncanada.com/toronto/",
+    "description": "Guide to family-friendly events, festivals, and activities in Toronto and GTA",
+    "coverage": "Toronto & GTA",
+    "highlights": "Weekend guides, seasonal event roundups, March Break guides"
+  },
+  {
+    "name": "To Do Canada – Kids",
+    "url": "https://www.todocanada.ca/things-to-do-in-toronto-kids-this-weekend/",
+    "description": "Weekend and holiday kids activities including free events",
+    "coverage": "Toronto, GTA & Hamilton",
+    "highlights": "Free event lists, March Break activities, seasonal guides"
+  },
+  {
+    "name": "Kids Out and About Toronto",
+    "url": "https://toronto.kidsoutandabout.com/",
+    "description": "Online guide for kids, teens, and families with camps, classes, and events",
+    "coverage": "Toronto & GTA",
+    "highlights": "Featured events, camp listings, activity finder"
+  },
+  {
+    "name": "NOW Toronto – Family",
+    "url": "https://nowtoronto.com/culture/",
+    "description": "Toronto arts and culture magazine with family event coverage",
+    "coverage": "Toronto",
+    "highlights": "March Break picks, weekend recommendations, free events"
+  },
+  {
+    "name": "To Do Ontario",
+    "url": "https://todoontario.com/",
+    "description": "Province-wide family events, festivals, and getaways",
+    "coverage": "Ontario-wide",
+    "highlights": "March Break vacation ideas, maple syrup festivals, family resorts"
+  },
+  {
+    "name": "Destination Toronto",
+    "url": "https://www.destinationtoronto.com/",
+    "description": "Official Toronto tourism site with family-friendly event listings",
+    "coverage": "Toronto",
+    "highlights": "Seasonal guides, attraction deals, visitor tips"
+  },
+  {
+    "name": "BlogTO – Family",
+    "url": "https://www.blogto.com/family/",
+    "description": "Toronto city guide with family and kids content",
+    "coverage": "Toronto & GTA",
+    "highlights": "Best-of lists, new attraction reviews, free events"
+  },
+  {
+    "name": "Toronto4Kids",
+    "url": "https://www.toronto4kids.com/",
+    "description": "Family-focused Toronto magazine with events and camp guides",
+    "coverage": "Toronto & GTA",
+    "highlights": "Camp fairs, birthday party venues, seasonal activity guides"
+  }
+]
