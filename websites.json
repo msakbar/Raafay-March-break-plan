@@ -61,5 +61,19 @@
     "description": "Family-focused Toronto magazine with events and camp guides",
     "coverage": "Toronto & GTA",
     "highlights": "Camp fairs, birthday party venues, seasonal activity guides"
+  },
+  {
+    "name": "TYT Theatre – On Stage",
+    "url": "https://www.tyttheatre.com/onstage",
+    "description": "Theatre for young audiences with original productions for kids and families",
+    "coverage": "Toronto",
+    "highlights": "Current season shows, upcoming productions, school matinees"
+  },
+  {
+    "name": "Young People's Theatre (YPT)",
+    "url": "https://www.youngpeoplestheatre.org",
+    "description": "Canada's largest professional theatre for young audiences, offering plays, camps, and drama classes",
+    "coverage": "Toronto",
+    "highlights": "Season lineup, March Break shows, Room for Play, drama camps"
   }
 ]
