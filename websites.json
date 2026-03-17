@@ -75,5 +75,47 @@
     "description": "Canada's largest professional theatre for young audiences, offering plays, camps, and drama classes",
     "coverage": "Toronto",
     "highlights": "Season lineup, March Break shows, Room for Play, drama camps"
+  },
+  {
+    "name": "Toronto On Demand",
+    "url": "https://www.torontoondemand.ca",
+    "description": "Detailed event writeups for Toronto family activities, history museums, and seasonal events",
+    "coverage": "Toronto & GTA",
+    "highlights": "March Break guides, Toronto History Museums, detailed event reviews"
+  },
+  {
+    "name": "Over Here Toronto",
+    "url": "https://www.overheretoronto.com",
+    "description": "Comprehensive weekly event roundups and seasonal activity guides for Toronto",
+    "coverage": "Toronto & Ontario",
+    "highlights": "Weekly things-to-do lists, March Break Ontario guide, hidden gems"
+  },
+  {
+    "name": "Toronto Guardian",
+    "url": "https://torontoguardian.com",
+    "description": "Local Toronto news with family event coverage and seasonal roundups",
+    "coverage": "Toronto",
+    "highlights": "Family fun roundups, March Break guides, new openings"
+  },
+  {
+    "name": "Savvy Mom",
+    "url": "https://www.savvymom.ca",
+    "description": "Canadian parenting site with Toronto-focused kids activity guides",
+    "coverage": "Toronto & Canada",
+    "highlights": "Monthly activity roundups, March Break ideas, family travel"
+  },
+  {
+    "name": "WeeFestival",
+    "url": "https://weefestival.ca",
+    "description": "Toronto arts festival specifically for early years (ages 0-6)",
+    "coverage": "Toronto",
+    "highlights": "Age 0-6 theatre and art shows, sensory-friendly performances"
+  },
+  {
+    "name": "Destination Ontario",
+    "url": "https://www.destinationontario.com",
+    "description": "Provincial tourism board with family event and March Break guides",
+    "coverage": "Ontario-wide",
+    "highlights": "March Break activities province-wide, family getaways, seasonal festivals"
   }
 ]
