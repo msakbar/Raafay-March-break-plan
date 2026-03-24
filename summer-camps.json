@@ -903,5 +903,98 @@
     "registration": "Check website for 2026 registration",
     "notes": "No membership required. Must be 5. Etobicoke location available. 15+ locations across GTA.",
     "membershipRequired": false
+  },
+  {
+    "name": "Creative Sprouts Art Camp (Runnymede)",
+    "url": "https://www.creativesprouts.ca/",
+    "ages": "Check website for age groups",
+    "minAge": 4,
+    "ageNote": "Exact age range not confirmed — check creativesprouts.ca for details.",
+    "category": "arts",
+    "locations": [
+      "Runnymede United Church, Runnymede Rd, Toronto"
+    ],
+    "area": "west-toronto",
+    "closestLocation": "Runnymede United Church",
+    "driveTime": "12 min",
+    "driveDistance": "6 km",
+    "directionsUrl": "https://www.google.com/maps/dir/M8Y+3M1/Runnymede+United+Church,+Toronto,+ON",
+    "dates": "Summer 2026",
+    "hours": "Check website",
+    "price": "Check website",
+    "priceRange": "unknown",
+    "activities": "Toronto's Premier Art Camp for Kids — hands-on art adventures to inspire creativity, boost skills, and spark joy. Summer camps, March Break camps, and after-school programs.",
+    "registration": "Check creativesprouts.ca for 2026 registration.",
+    "notes": "No membership required. Located in Runnymede — 12 min from home. West-end location is convenient.",
+    "membershipRequired": false
+  },
+  {
+    "name": "Toronto Nature School – Summer Camp",
+    "url": "https://torontonatureschool.ca/programs/summer-camp/",
+    "ages": "4-12",
+    "minAge": 4,
+    "category": "nature",
+    "locations": [
+      "Toronto Nature School (check website for location)"
+    ],
+    "area": "downtown",
+    "closestLocation": "Check website",
+    "driveTime": "~20 min",
+    "driveDistance": "~12 km",
+    "directionsUrl": "https://torontonatureschool.ca/programs/summer-camp/",
+    "dates": "Summer 2026",
+    "hours": "Full day",
+    "price": "Check website",
+    "priceRange": "$$",
+    "activities": "Daily nature games, nature lessons, hands-on activities, free play. Small ratios. Skilled educators. Voted Best Camps by Toronto Star Readers!",
+    "registration": "Check website for 2026 registration.",
+    "notes": "No membership required. VOTED BEST CAMPS BY TORONTO STAR READERS. Daily schedules change — games, nature lessons, hands-on activities, free play. Small educator ratios.",
+    "membershipRequired": false
+  },
+  {
+    "name": "Art-Kitect Art Academy – Summer Camp (Danforth)",
+    "url": "https://akartschool.com/collections/summer-camp",
+    "ages": "4-13",
+    "minAge": 4,
+    "category": "arts",
+    "locations": [
+      "Art-Kitect, Danforth, Toronto"
+    ],
+    "area": "downtown",
+    "closestLocation": "Danforth, Toronto",
+    "driveTime": "25 min",
+    "driveDistance": "16 km",
+    "directionsUrl": "https://www.google.com/maps/dir/M8Y+3M1/Danforth,+Toronto,+ON",
+    "dates": "Summer 2026 (weekly, Mon-Fri)",
+    "hours": "9:00 AM - 4:00 PM",
+    "price": "Check website — sells out every year!",
+    "priceRange": "$$",
+    "activities": "Full day of painting, drawing, sculpture, mixed media. Taught by professional artists. Weekly themes: Fantasy/Dinosaurs/Ancient Worlds, Dragons/Drip Paintings/Epic Odysseys. Indoor + outdoor time.",
+    "registration": "Registration open now. Spots fill fast!",
+    "notes": "No membership required. Age 4 accepted. Award-winning programs. Small class sizes. Professional artist instructors. SELLS OUT EVERY YEAR — register early!",
+    "membershipRequired": false
+  },
+  {
+    "name": "BeanstalkHQ – Play-Based Camps",
+    "url": "https://www.beanstalkhq.com/summer-camps-2026",
+    "ages": "Preschool to rising 1st graders (approx 3-6)",
+    "minAge": 4,
+    "category": "general",
+    "locations": [
+      "BeanstalkHQ, Toronto (check website for address)"
+    ],
+    "area": "downtown",
+    "closestLocation": "BeanstalkHQ, Toronto",
+    "driveTime": "~20 min",
+    "driveDistance": "~12 km",
+    "directionsUrl": "https://www.beanstalkhq.com/summer-camps-2026",
+    "dates": "Summer 2026",
+    "hours": "Morning: 9 AM - 12 PM; Afternoon: 1 - 4 PM; or both for full day",
+    "price": "Themed Play Camps: $175/session. Academic & Literacy Camps: $295/session.",
+    "priceRange": "$$",
+    "activities": "Themed Play Camps: science, space, art, adventure, engineering. Academic Camps: early reading, math, classroom readiness (partnership with Once Upon a Time Teaching). Play-based, small groups.",
+    "registration": "Register online at beanstalkhq.com. Walk-ins not guaranteed. Email: support@beanstalkhq.com",
+    "notes": "No membership required. ⚠️ Parent/caregiver must stay on premises during sessions! Can use cafe (free) or co-working space ($50/wk). Great for kindergarten readiness. Half-day sessions.",
+    "membershipRequired": false
   }
 ]
