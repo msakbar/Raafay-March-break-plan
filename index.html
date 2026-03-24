@@ -271,11 +271,103 @@
     font-size: 0.85rem;
   }
 
+  /* Camp filters */
+  .camp-filters {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .filter-group label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .filter-group select {
+    padding: 0.45rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--text);
+    background: white;
+    cursor: pointer;
+    min-width: 180px;
+  }
+
+  .filter-group select:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 2px rgba(74, 144, 217, 0.2);
+  }
+
+  .filter-reset-btn {
+    padding: 0.45rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: white;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .filter-reset-btn:hover {
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  .camp-count {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+
+  .badge-top-pick {
+    background: #ffeaa7;
+    color: #d35400;
+  }
+
+  .badge-age5 {
+    background: #fadbd8;
+    color: #922b21;
+  }
+
+  .camp-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-right: 0.3rem;
+  }
+
+  .tag-stem { background: #d5f5e3; color: #1e8449; }
+  .tag-arts { background: #f0e6f6; color: #7d3c98; }
+  .tag-sports { background: #ebf5fb; color: #2e86c1; }
+  .tag-general { background: #fdebd0; color: #ca6f1e; }
+
   @media (max-width: 600px) {
     header h1 { font-size: 1.5rem; }
     .cards { grid-template-columns: 1fr; }
     .tabs { gap: 0.25rem; }
     .tab-btn { padding: 0.5rem 0.8rem; font-size: 0.85rem; }
+    .camp-filters { flex-direction: column; gap: 0.75rem; }
+    .filter-group select { min-width: 100%; }
   }
 </style>
 </head>
@@ -291,6 +383,7 @@
   <div class="tabs">
     <button class="tab-btn active" data-tab="schedule">Schedule</button>
     <button class="tab-btn" data-tab="activities">All Activities</button>
+    <button class="tab-btn" data-tab="summer-camps">Summer Camps</button>
     <button class="tab-btn" data-tab="resources">Resources</button>
   </div>
 
@@ -1180,6 +1273,54 @@
 
   </div>
 
+  <!-- ==================== SUMMER CAMPS TAB ==================== -->
+  <div id="summer-camps" class="tab-content">
+
+    <p style="color: var(--text-light); margin-bottom: 1rem; font-size: 0.95rem;">
+      Summer 2026 day camps in Toronto / GTA for Raafay (age 4&ndash;5). Filter by category, area, or price range.
+    </p>
+
+    <div class="camp-filters">
+      <div class="filter-group">
+        <label>Category</label>
+        <select id="filter-category">
+          <option value="all">All Categories</option>
+          <option value="stem">STEM &amp; Coding</option>
+          <option value="arts">Arts &amp; Drama</option>
+          <option value="sports">Sports &amp; Nature</option>
+          <option value="general">General / Multi-Activity</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Area</label>
+        <select id="filter-area">
+          <option value="all">All Areas</option>
+          <option value="west-toronto">West Toronto / Etobicoke</option>
+          <option value="downtown">Downtown Toronto</option>
+          <option value="north-york">North York</option>
+          <option value="york-region">York Region (Vaughan/Markham)</option>
+          <option value="multiple">Multiple Locations</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Price</label>
+        <select id="filter-price">
+          <option value="all">All Prices</option>
+          <option value="free">Free / Subsidized</option>
+          <option value="$$">$$ (Under $400/wk)</option>
+          <option value="$$$">$$$ ($400+/wk)</option>
+        </select>
+      </div>
+      <div class="filter-group" style="align-self:flex-end;">
+        <button id="filter-reset" class="filter-reset-btn">Reset Filters</button>
+      </div>
+    </div>
+
+    <div class="camp-count" id="camp-count"></div>
+    <div class="cards" id="camp-cards"></div>
+
+  </div>
+
   <!-- ==================== RESOURCES TAB ==================== -->
   <div id="resources" class="tab-content">
 
@@ -1194,7 +1335,7 @@
 </div>
 
 <footer>
-  Raafay's March Break 2026 &bull; Updated March 2026
+  Raafay's March Break &amp; Summer 2026 &bull; Updated March 2026
 </footer>
 
 <script>
@@ -1225,6 +1366,91 @@
         container.appendChild(card);
       });
     });
+
+  // Summer Camps
+  var allCamps = [];
+  var categoryLabels = { stem: 'STEM & Coding', arts: 'Arts & Drama', sports: 'Sports & Nature', general: 'General' };
+  var tagClasses = { stem: 'tag-stem', arts: 'tag-arts', sports: 'tag-sports', general: 'tag-general' };
+
+  fetch('summer-camps.json')
+    .then(function(r) { return r.json(); })
+    .then(function(camps) {
+      allCamps = camps;
+      renderCamps(camps);
+    });
+
+  function renderCamps(camps) {
+    var container = document.getElementById('camp-cards');
+    var countEl = document.getElementById('camp-count');
+    container.innerHTML = '';
+    countEl.textContent = camps.length + ' camp' + (camps.length !== 1 ? 's' : '') + ' found';
+
+    if (camps.length === 0) {
+      container.innerHTML = '<p style="color:var(--text-light);font-style:italic;padding:1rem;">No camps match your filters. Try adjusting your selection.</p>';
+      return;
+    }
+
+    camps.forEach(function(camp) {
+      var card = document.createElement('div');
+      card.className = 'card';
+
+      var badges = '';
+      if (camp.topPick) {
+        badges += '<span class="badge badge-top-pick">' + camp.topPickLabel + '</span> ';
+      }
+      if (camp.minAge && camp.minAge >= 5) {
+        badges += '<span class="badge badge-age5">Age 5+</span>';
+      }
+
+      var tag = '<span class="camp-tag ' + (tagClasses[camp.category] || '') + '">' + (categoryLabels[camp.category] || camp.category) + '</span>';
+
+      var details = '';
+      details += '<div class="detail"><span class="detail-label">Ages</span> ' + camp.ages + '</div>';
+      details += '<div class="detail"><span class="detail-label">Location</span> ' + camp.locations.join('; ') + '</div>';
+      details += '<div class="detail"><span class="detail-label">Price</span> ' + camp.price + '</div>';
+      details += '<div class="detail"><span class="detail-label">Hours</span> ' + camp.hours + '</div>';
+      details += '<div class="detail"><span class="detail-label">Dates</span> ' + camp.dates + '</div>';
+      if (camp.ratio) {
+        details += '<div class="detail"><span class="detail-label">Ratio</span> ' + camp.ratio + '</div>';
+      }
+      details += '<div class="detail"><span class="detail-label">Register</span> ' + camp.registration + '</div>';
+
+      card.innerHTML =
+        '<div class="card-title">' +
+          '<span>' + tag + ' <a href="' + (camp.url || '#') + '" target="_blank">' + camp.name + '</a></span>' +
+          '<span>' + badges + '</span>' +
+        '</div>' +
+        '<div class="card-details">' + details + '</div>' +
+        '<div class="card-notes"><strong>Activities:</strong> ' + camp.activities + '</div>' +
+        (camp.notes ? '<div class="card-notes">' + camp.notes + '</div>' : '');
+
+      container.appendChild(card);
+    });
+  }
+
+  function filterCamps() {
+    var cat = document.getElementById('filter-category').value;
+    var area = document.getElementById('filter-area').value;
+    var price = document.getElementById('filter-price').value;
+
+    var filtered = allCamps.filter(function(camp) {
+      if (cat !== 'all' && camp.category !== cat) return false;
+      if (area !== 'all' && camp.area !== area) return false;
+      if (price !== 'all' && camp.priceRange !== price) return false;
+      return true;
+    });
+    renderCamps(filtered);
+  }
+
+  document.getElementById('filter-category').addEventListener('change', filterCamps);
+  document.getElementById('filter-area').addEventListener('change', filterCamps);
+  document.getElementById('filter-price').addEventListener('change', filterCamps);
+  document.getElementById('filter-reset').addEventListener('click', function() {
+    document.getElementById('filter-category').value = 'all';
+    document.getElementById('filter-area').value = 'all';
+    document.getElementById('filter-price').value = 'all';
+    renderCamps(allCamps);
+  });
 </script>
 
 </body>
