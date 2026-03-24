@@ -1339,14 +1339,24 @@
 </footer>
 
 <script>
-  document.querySelectorAll('.tab-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
-      document.querySelectorAll('.tab-content').forEach(function(c) { c.classList.remove('active'); });
+  function switchTab(tabId) {
+    document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    document.querySelectorAll('.tab-content').forEach(function(c) { c.classList.remove('active'); });
+    var btn = document.querySelector('.tab-btn[data-tab="' + tabId + '"]');
+    if (btn) {
       btn.classList.add('active');
-      document.getElementById(btn.dataset.tab).classList.add('active');
-    });
+      document.getElementById(tabId).classList.add('active');
+      history.replaceState(null, '', '#' + tabId);
+    }
+  }
+
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { switchTab(btn.dataset.tab); });
   });
+
+  // Open tab from URL hash (e.g. #summer-camps)
+  var hash = location.hash.replace('#', '');
+  if (hash && document.getElementById(hash)) { switchTab(hash); }
 
   // Load resource websites from JSON
   fetch('websites.json')
