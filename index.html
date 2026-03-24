@@ -1277,7 +1277,7 @@
   <div id="summer-camps" class="tab-content">
 
     <p style="color: var(--text-light); margin-bottom: 1rem; font-size: 0.95rem;">
-      Summer 2026 day camps in Toronto / GTA for Raafay (age 4&ndash;5). Filter by category, area, or price range.
+      Summer 2026 day camps in Toronto / GTA for Raafay (age 4&ndash;5). Drive times from home (M8Y 3M1, South Etobicoke). Sorted nearest first.
     </p>
 
     <div class="camp-filters">
@@ -1406,7 +1406,11 @@
 
       var details = '';
       details += '<div class="detail"><span class="detail-label">Ages</span> ' + camp.ages + '</div>';
-      details += '<div class="detail"><span class="detail-label">Location</span> ' + camp.locations.join('; ') + '</div>';
+      if (camp.ageNote) {
+        details += '<div class="detail" style="color:#e74c3c;font-size:0.85rem;"><span class="detail-label" style="color:#e74c3c;">⚠ Note</span> ' + camp.ageNote + '</div>';
+      }
+      details += '<div class="detail"><span class="detail-label">Nearest</span> ' + camp.closestLocation + '</div>';
+      details += '<div class="detail"><span class="detail-label">Drive</span> ' + camp.driveTime + ' / ' + camp.driveDistance + ' from M8Y 3M1 — <a href="' + camp.directionsUrl + '" target="_blank" style="color:var(--blue);">Get Directions</a></div>';
       details += '<div class="detail"><span class="detail-label">Price</span> ' + camp.price + '</div>';
       details += '<div class="detail"><span class="detail-label">Hours</span> ' + camp.hours + '</div>';
       details += '<div class="detail"><span class="detail-label">Dates</span> ' + camp.dates + '</div>';
