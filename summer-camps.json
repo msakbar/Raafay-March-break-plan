@@ -5,7 +5,18 @@
     "ages": "4-12",
     "minAge": 4,
     "category": "general",
-    "locations": ["Mimico", "Swansea", "Islington", "Royal York", "Baby Point", "Roncesvalles", "High Park North", "Bloordale", "Ossington", "Yonge & Eglinton"],
+    "locations": [
+      "Mimico",
+      "Swansea",
+      "Islington",
+      "Royal York",
+      "Baby Point",
+      "Roncesvalles",
+      "High Park North",
+      "Bloordale",
+      "Ossington",
+      "Yonge & Eglinton"
+    ],
     "area": "west-toronto",
     "closestLocation": "Mimico",
     "driveTime": "5 min",
@@ -16,8 +27,9 @@
     "price": "$79/day all-in (no HST)",
     "priceRange": "$$",
     "activities": "Weekly themed activities (Dinosaur, Space, Pirates, Underwater World, Dragons & Unicorns), arts & crafts, games, field trips to CN Tower, ROM, Casa Loma, Aquarium, Little Canada.",
-    "registration": "Opened January 6, 2026. 50% deposit at sign-up.",
-    "notes": "Mimico location is a 5-min drive from home! Field trips, transportation, and entry tickets all included in the $79/day price.",
+    "registration": "Opened January 6, 2026. 50% deposit at sign-up; balance was due Feb 28. After Mar 1, full payment required at registration.",
+    "notes": "No membership required. Mimico location is a 5-min drive from home! Field trips, transportation, and entry tickets all included in the $79/day price. Groups of 12 with 2 counsellors. Cancel before Feb 28 = full refund; after Mar 1 = $15/week fee (30+ days before camp).",
+    "membershipRequired": false,
     "topPick": true,
     "topPickLabel": "Closest"
   },
@@ -27,7 +39,9 @@
     "ages": "4-16",
     "minAge": 4,
     "category": "general",
-    "locations": ["Multiple (170 locations across Toronto)"],
+    "locations": [
+      "Multiple (170 locations across Toronto)"
+    ],
     "area": "multiple",
     "closestLocation": "Nearest community centre in South Etobicoke (check toronto.ca for specific sites)",
     "driveTime": "5-10 min (nearest)",
@@ -39,7 +53,8 @@
     "priceRange": "free",
     "activities": "Arts & crafts, drama, music, dance, active games, nature, science, cooking. Specialty options include visual/performing arts, science, creative writing, magic, French immersion.",
     "registration": "Early Local: March 24, 2026. General: March 31, 2026",
-    "notes": "170 locations means there's likely one within 10 min of home. Welcome Policy subsidies available. Free mid-morning snack (new 2026). Register ASAP — Early Local registration is NOW!",
+    "membershipRequired": false,
+    "notes": "170 locations means there's likely one within 10 min of home. Welcome Policy subsidies available. Free mid-morning snack (new 2026). 115,000 spaces at 185 locations. Register ASAP — Early Local registration is TODAY (March 24)! General reg March 31.",
     "topPick": true,
     "topPickLabel": "Best Value"
   },
@@ -49,7 +64,11 @@
     "ages": "5-14 (Junior Robotics: 5-6)",
     "minAge": 5,
     "category": "stem",
-    "locations": ["Toronto West Kingsway (5+)", "Toronto West Runnymede", "North York (6+)"],
+    "locations": [
+      "Toronto West Kingsway (5+)",
+      "Toronto West Runnymede",
+      "North York (6+)"
+    ],
     "area": "west-toronto",
     "closestLocation": "Toronto West Kingsway",
     "driveTime": "8 min",
@@ -63,7 +82,8 @@
     "registration": "Contact: director@brickworksacademy.com (age verified with birth certificate)",
     "notes": "Must be 5 and have attended JK. Kingsway location is very close to home! LEGO robotics focus.",
     "topPick": true,
-    "topPickLabel": "Best LEGO"
+    "topPickLabel": "Best LEGO",
+    "membershipRequired": false
   },
   {
     "name": "Children's Arts Theatre School (CATS)",
@@ -71,7 +91,12 @@
     "ages": "4-14 (Junior Camp: 4-6)",
     "minAge": 4,
     "category": "arts",
-    "locations": ["High Park", "Downtown Toronto", "Danforth", "Willowdale"],
+    "locations": [
+      "High Park",
+      "Downtown Toronto",
+      "Danforth",
+      "Willowdale"
+    ],
     "area": "multiple",
     "closestLocation": "High Park",
     "driveTime": "10 min",
@@ -85,7 +110,8 @@
     "registration": "Contact: 416-538-2121 / infocatsdrama@gmail.com",
     "notes": "High Park location is 10 min away. Age 4 confirmed for Junior Camp. Kids perform a real show for parents on the last day!",
     "topPick": true,
-    "topPickLabel": "Best Drama"
+    "topPickLabel": "Best Drama",
+    "membershipRequired": false
   },
   {
     "name": "Mad Science Toronto",
@@ -94,7 +120,16 @@
     "minAge": 4,
     "ageNote": "Ontario JK starts at age 4; confirm with camp that JK-age children are accepted (some camps mean SK/age 5 by 'kindergarten')",
     "category": "stem",
-    "locations": ["Mississauga", "Harbourfront Centre", "Richmond Hill", "Aurora", "Newmarket", "Ajax", "King City", "Caledon"],
+    "locations": [
+      "Mississauga",
+      "Harbourfront Centre",
+      "Richmond Hill",
+      "Aurora",
+      "Newmarket",
+      "Ajax",
+      "King City",
+      "Caledon"
+    ],
     "area": "multiple",
     "closestLocation": "Mississauga",
     "driveTime": "15 min",
@@ -106,7 +141,8 @@
     "priceRange": "unknown",
     "activities": "Dedicated Kindergarten Camp: hands-on science with dinosaurs, bubbling potions, erupting volcanoes, slime, space. Daily experiments & take-home activities. Also Chess + Science and Travel the World Through Art.",
     "registration": "Contact: 416-630-5282 / toronto@madscience.org",
-    "notes": "Call to confirm if JK-age (4) qualifies or if they require SK (5). Mississauga location is closest at ~15 min."
+    "notes": "Call to confirm if JK-age (4) qualifies or if they require SK (5). Mississauga location is closest at ~15 min.",
+    "membershipRequired": false
   },
   {
     "name": "Harbourfront Centre Summer Camps",
@@ -114,7 +150,9 @@
     "ages": "4-15 (Young Campers: 4-6)",
     "minAge": 4,
     "category": "arts",
-    "locations": ["Harbourfront Centre, 235 Queens Quay W, Toronto"],
+    "locations": [
+      "Harbourfront Centre, 235 Queens Quay W, Toronto"
+    ],
     "area": "downtown",
     "closestLocation": "Harbourfront Centre",
     "driveTime": "18 min",
@@ -125,8 +163,9 @@
     "price": "$395 - $995 per program",
     "priceRange": "$$$",
     "activities": "Young Campers (4-6): movement, arts, outdoor discovery, creativity. Also Improv Theatre (Second City), Science & Engineering (Ontario Science Centre), Visual Arts, Performing Arts, Marine programs. 20+ programs.",
-    "registration": "Running since 1979. Extended Care, Meal Plans, Busing add-ons available.",
-    "notes": "Premium waterfront location. Age 4 confirmed for Young Campers program. Partnership with Second City and Ontario Science Centre for specialty weeks."
+    "registration": "Opened Jan 13, 2026 at 10 AM. Full payment at registration. Financial assistance: up to 2 weeks per camper (applied by Apr 1). Running since 1979.",
+    "notes": "No membership required (members get early access). Premium 10-acre waterfront campus. No circus camps in 2026 (space adjustments). Subsidy: up to 2 wks/camper. Cancellations before Mar 31 = full refund; after = $100 fee.",
+    "membershipRequired": false
   },
   {
     "name": "STEM Camp",
@@ -134,7 +173,10 @@
     "ages": "4-13 (must be 4 by Jan 1, 2026)",
     "minAge": 4,
     "category": "stem",
-    "locations": ["Downtown Toronto", "Church of our Saviour, 1 Laurentide Dr, North York"],
+    "locations": [
+      "Downtown Toronto",
+      "Church of our Saviour, 1 Laurentide Dr, North York"
+    ],
     "area": "north-york",
     "closestLocation": "Downtown Toronto",
     "driveTime": "20 min",
@@ -149,7 +191,8 @@
     "ratio": "1:7",
     "notes": "Not-for-profit. Age 4 confirmed (must be 4 by Jan 1). Downtown location is closer (~20 min); North York is ~30 min.",
     "topPick": true,
-    "topPickLabel": "Best STEM"
+    "topPickLabel": "Best STEM",
+    "membershipRequired": false
   },
   {
     "name": "AGO Summer Art Camp",
@@ -157,7 +200,9 @@
     "ages": "5-13",
     "minAge": 5,
     "category": "arts",
-    "locations": ["Art Gallery of Ontario, 317 Dundas St W, Toronto"],
+    "locations": [
+      "Art Gallery of Ontario, 317 Dundas St W, Toronto"
+    ],
     "area": "downtown",
     "closestLocation": "AGO, 317 Dundas St W",
     "driveTime": "20 min",
@@ -165,11 +210,12 @@
     "directionsUrl": "https://www.google.com/maps/dir/M8Y+3M1/Art+Gallery+of+Ontario,+317+Dundas+St+W,+Toronto",
     "dates": "Late June - early September 2026",
     "hours": "Full day; Extended Care 8:00-8:30 AM & 4:00-5:30 PM",
-    "price": "Member discount available. Financial assistance/subsidy program (1 week per camper)",
-    "priceRange": "$$",
+    "price": "Members: $350/wk (4-day), $420/wk (5-day). Public: $410/wk (4-day), $490/wk (5-day). Financial assistance: 1 week subsidy per camper.",
+    "priceRange": "$$$",
     "activities": "Drawing, painting, collage, sculpture, printmaking, cartooning, animation. Programs: Art Rebels, Wild Things, Build It, Miniature Worlds, Art and Play.",
     "registration": "Members: Jan 28. Public: Jan 30, 2026",
-    "notes": "Must be 5. World-class art gallery setting. Financial assistance available for one week per camper."
+    "notes": "Must be 5. World-class art gallery setting. Financial assistance available for one week per camper.",
+    "membershipRequired": false
   },
   {
     "name": "Codezilla Kids",
@@ -177,7 +223,14 @@
     "ages": "5-14 (STEM/STEAM: 5-10; Coding: 8+)",
     "minAge": 5,
     "category": "stem",
-    "locations": ["Junction", "Danforth", "North York", "Lawrence Manor/Ledbury Park", "Wychwood", "Leaside"],
+    "locations": [
+      "Junction",
+      "Danforth",
+      "North York",
+      "Lawrence Manor/Ledbury Park",
+      "Wychwood",
+      "Leaside"
+    ],
     "area": "multiple",
     "closestLocation": "Junction",
     "driveTime": "15 min",
@@ -192,7 +245,8 @@
     "registration": "Opened January 16, 2026. 12-15 spots max per session. Scholarships available.",
     "notes": "Must be 5. Junction location is closest (~15 min). Small group sizes (12-15 max). Scholarships available.",
     "topPick": true,
-    "topPickLabel": "Best Coding"
+    "topPickLabel": "Best Coding",
+    "membershipRequired": false
   },
   {
     "name": "Young People's Theatre (YPT) Summer Drama Camp",
@@ -200,7 +254,9 @@
     "ages": "Senior Kindergarten and up (age 5+)",
     "minAge": 5,
     "category": "arts",
-    "locations": ["161 Frederick St & 165 Front St East, Toronto"],
+    "locations": [
+      "161 Frederick St & 165 Front St East, Toronto"
+    ],
     "area": "downtown",
     "closestLocation": "165 Front St East, Toronto",
     "driveTime": "22 min",
@@ -212,7 +268,8 @@
     "priceRange": "unknown",
     "activities": "Drama games, acting, voice, movement, character creation, improvisation. Campers create and perform an original play on the YPT stage.",
     "registration": "Contact: YPTDramaSchool@youngpeoplestheatre.org / 416-862-2222 x242",
-    "notes": "Requires Senior Kindergarten (age 5+). NOT for JK/age 4. Kids perform on a real professional theatre stage. Bursaries available."
+    "notes": "Requires Senior Kindergarten (age 5+). NOT for JK/age 4. Kids perform on a real professional theatre stage. Bursaries available.",
+    "membershipRequired": false
   },
   {
     "name": "Human Moves Day Camp",
@@ -220,7 +277,10 @@
     "ages": "4-14",
     "minAge": 4,
     "category": "sports",
-    "locations": ["North York", "Toronto"],
+    "locations": [
+      "North York",
+      "Toronto"
+    ],
     "area": "north-york",
     "closestLocation": "Toronto location (check website for exact address)",
     "driveTime": "~25 min",
@@ -232,7 +292,8 @@
     "priceRange": "unknown",
     "activities": "Creative and exercise-based programs combining physical activity with arts.",
     "registration": "Operating since 2003",
-    "notes": "Farther drive (~25 min). Long-running camp with a unique blend of movement and creativity."
+    "notes": "Farther drive (~25 min). Long-running camp with a unique blend of movement and creativity.",
+    "membershipRequired": false
   },
   {
     "name": "Snapology of North York",
@@ -240,7 +301,11 @@
     "ages": "2-14 (Pre-K programs: 4-6)",
     "minAge": 4,
     "category": "stem",
-    "locations": ["North York", "Toronto", "Scarborough"],
+    "locations": [
+      "North York",
+      "Toronto",
+      "Scarborough"
+    ],
     "area": "north-york",
     "closestLocation": "North York",
     "driveTime": "25 min",
@@ -252,7 +317,8 @@
     "priceRange": "unknown",
     "activities": "LEGO WeDo Education, DUPLO builds, STEAM/STEM, robotics, movie-making, drones. Pre-K: letter recognition, phonics, basic engineering, beginner coding.",
     "registration": "Check website for summer 2026 schedule",
-    "notes": "Farther drive (~25 min to North York). Pre-K program blends early literacy with STEM through LEGO and DUPLO."
+    "notes": "Farther drive (~25 min to North York). Pre-K program blends early literacy with STEM through LEGO and DUPLO.",
+    "membershipRequired": false
   },
   {
     "name": "Engineering for Kids (EFK) - Toronto/York Region",
@@ -260,7 +326,13 @@
     "ages": "Pre-K to Grade 8",
     "minAge": 4,
     "category": "stem",
-    "locations": ["Vaughan", "Richmond Hill", "Markham", "Newmarket", "Aurora"],
+    "locations": [
+      "Vaughan",
+      "Richmond Hill",
+      "Markham",
+      "Newmarket",
+      "Aurora"
+    ],
     "area": "york-region",
     "closestLocation": "Vaughan",
     "driveTime": "35 min",
@@ -272,7 +344,8 @@
     "priceRange": "unknown",
     "activities": "Junior Inventors: inventing machines, engineering design process, mechanical toys, building & programming robotics (racing car, Mars rover).",
     "registration": "Check website for 2026 pricing and registration",
-    "notes": "Long drive (~35 min to Vaughan, 40+ to others). Pre-K program specifically designed for youngest learners."
+    "notes": "Long drive (~35 min to Vaughan, 40+ to others). Pre-K program specifically designed for youngest learners.",
+    "membershipRequired": false
   },
   {
     "name": "Camp Invention - Spark Program",
@@ -281,7 +354,9 @@
     "minAge": 4,
     "ageNote": "'Rising K' means entering kindergarten in fall 2026. Confirm your child's eligibility based on their school enrollment.",
     "category": "stem",
-    "locations": ["Various community sites (check for Toronto-area locations)"],
+    "locations": [
+      "Various community sites (check for Toronto-area locations)"
+    ],
     "area": "multiple",
     "closestLocation": "Varies — check website for Toronto-area host sites",
     "driveTime": "Varies",
@@ -293,7 +368,8 @@
     "priceRange": "$$",
     "activities": "Robotic capybaras, entrepreneurship, intellectual property concepts, DIY space rocket building.",
     "registration": "Use discount codes before deadlines for savings",
-    "notes": "National Inventors Hall of Fame program. 'Rising K' means entering kindergarten fall 2026 — confirm eligibility. Location depends on host site."
+    "notes": "National Inventors Hall of Fame program. 'Rising K' means entering kindergarten fall 2026 — confirm eligibility. Location depends on host site.",
+    "membershipRequired": false
   },
   {
     "name": "Megamind Learning Centre",
@@ -301,7 +377,9 @@
     "ages": "Junior Kindergarten to Grade 8+",
     "minAge": 4,
     "category": "general",
-    "locations": ["Toronto (check website for locations)"],
+    "locations": [
+      "Toronto (check website for locations)"
+    ],
     "area": "multiple",
     "closestLocation": "Check website for nearest location",
     "driveTime": "Varies",
@@ -313,6 +391,7 @@
     "priceRange": "unknown",
     "activities": "Math, English, French, coding, public speaking.",
     "registration": "Check website",
-    "notes": "JK-age (4) accepted. Academic-focused camp combining learning with summer fun."
+    "notes": "JK-age (4) accepted. Academic-focused camp combining learning with summer fun.",
+    "membershipRequired": false
   }
 ]
