@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 3000;
+const ROOT = __dirname;
 
 const MIME = {
   '.html': 'text/html',
@@ -14,12 +15,35 @@ const MIME = {
   '.ico': 'image/x-icon',
 };
 
-const server = http.createServer((req, res) => {
-  let filePath = req.url === '/' ? '/index.html' : req.url;
-  filePath = path.join(__dirname, filePath);
+// Resolve a request URL to a file inside ROOT, or null if it escapes.
+function resolvePath(reqUrl) {
+  let pathname;
+  try {
+    pathname = decodeURIComponent(new URL(reqUrl, 'http://localhost').pathname);
+  } catch (e) {
+    return null;
+  }
 
-  const ext = path.extname(filePath);
-  const contentType = MIME[ext] || 'application/octet-stream';
+  if (pathname === '/') pathname = '/index.html';
+
+  // path.resolve normalizes away any '..' segments; then confirm we're still
+  // under ROOT before touching the filesystem.
+  const filePath = path.resolve(ROOT, '.' + pathname);
+  if (filePath !== ROOT && !filePath.startsWith(ROOT + path.sep)) return null;
+
+  return filePath;
+}
+
+const server = http.createServer((req, res) => {
+  const filePath = resolvePath(req.url);
+
+  if (!filePath) {
+    res.writeHead(403, { 'Content-Type': 'text/plain' });
+    res.end('Forbidden');
+    return;
+  }
+
+  const contentType = MIME[path.extname(filePath)] || 'application/octet-stream';
 
   fs.readFile(filePath, (err, data) => {
     if (err) {
@@ -32,6 +56,6 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(PORT, () => {
+server.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
 });

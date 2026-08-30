@@ -3,5 +3,10 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node server.js"
-  }
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "description": "Activity planner for Raafay - March Break, Summer & Labour Day 2026 (Toronto/GTA)",
+  "private": true
 }
