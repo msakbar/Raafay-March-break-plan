@@ -1,8 +1,8 @@
 # Sources
 
-Research sources for GTA kids outings. `websites.json` in the repo root is the canonical list (it also drives the Resources tab); this file adds how to use each and venue anchors by category.
+Research sources and venue anchors for Toronto / GTA kids outings.
 
-## Aggregators (from websites.json)
+## Aggregators
 
 | Name | URL | Coverage | Good for |
 |---|---|---|---|
@@ -44,4 +44,4 @@ Fetch notes: todocanada.ca and childslife.ca have failed on direct fetch (DNS) i
 **Eid / community**: ISNA Canada EidFest, local masjid family events.
 
 ## Summer camps
-`summer-camps.json` holds 50+ researched camps with drive time from M8Y, `minAge`, `membershipRequired`, registration windows. Extend it with the same fields rather than starting a new list.
+Search by area near M8Y (Mimico, Etobicoke, High Park, Swansea). Record per camp: ages/minAge, dates, hours incl. before/after care, price per day/week, drive time from M8Y, membership required (YMCA, JCC, etc.), registration open date and deposit/refund terms. Registration for popular camps opens Jan–Feb.

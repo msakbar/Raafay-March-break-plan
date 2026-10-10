@@ -1,52 +1,48 @@
 ---
 name: gta-kids-outings
-description: Research and plan outings, events, camps and activities for Raafay (born Sept 2021) and his younger sibling (~2) around Toronto / the GTA, from home in Mimico / South Etobicoke (M8Y 3M1). Use this whenever the user asks what to do with the kids — "what's on today after 5", "plan this weekend", "long weekend ideas", "March break", "PA day", "rainy day indoor stuff", "find summer camps", "process the inbox" — or wants a new tab/scan added to the planner in this repo, even if they don't say "research" or name the repo.
+description: Find and plan things to do with Raafay (born Sept 2021) and his younger sibling (~2) around Toronto / the GTA, from home in Mimico / South Etobicoke (M8Y 3M1). Use this whenever the user asks what to do with the kids or family — "what can we do tonight after 5", "anything on this weekend", "long weekend ideas", "March break", "PA day", "rainy day indoor stuff", "pumpkin patch / Halloween / Christmas lights for kids", "summer camps for a 5 year old" — even if they don't say "research", "kids" or "Toronto" explicitly.
 ---
 
 # GTA Kids Outings
 
-Turn a time window ("tonight after 5", "Thanksgiving weekend", "March break week") into a short, verified, ranked list of things the kids can actually do — and, when asked, persist it into the planner site (`index.html`) and notes (`activities.md`, `inbox.md`, `schedule.md`).
+Turn a time window ("tonight after 5", "Thanksgiving weekend", "March break week") into a short, verified, ranked list of things the kids can actually do, answered directly in chat.
 
 ## Family profile (compute, don't copy)
 
-- **Raafay**: born September 2021. Compute his age from today's date. Ages flip pricing ("4 & under free") and eligibility (camps, shows "ages 5+") — always check which side of a cutoff he is on.
-- **Sibling**: about 2 years younger (~2 in mid-2026). Anything that fails a 2-year-old (no stroller access, long lines, loud, late bedtime, scare content) needs a note.
-- **Home base**: Mimico / South Etobicoke, **M8Y 3M1**. Give rough drive times from there. West/central/downtown are easy; Markham, Pickering, Milton, Burlington are 35–60 min and should be flagged as a trip.
-- **Family context**: Muslim family — Eid events, halal food availability and prayer-friendly timing are relevant when present; never exclude something for lack of them.
-- **Friends/notes**: check `activities.md` and `schedule.md` for already-confirmed plans and recurring companions (e.g. Zain) before suggesting conflicts.
+- **Raafay**: born September 2021. Compute his age from today's date. Ages flip pricing ("4 & under free") and eligibility (camps, shows "ages 5+") — check which side of each cutoff he's on.
+- **Sibling**: about 2 years younger (~2 in mid-2026). Flag anything that fails a toddler: no stroller access, long lines, loud, late finish, scare content.
+- **Home base**: Mimico / South Etobicoke, **M8Y 3M1**. Give rough drive times from there. West/central/downtown are 10–25 min; Vaughan/Mississauga ~25–35; Markham, Pickering, Milton, Burlington, Hamilton 35–60+ and should be flagged as a trip.
+- **Family context**: Muslim family — Eid events, halal food and prayer-friendly timing are a plus when present; never exclude something for lacking them.
+- If the user mentions existing plans or friends joining, fit around them.
 
 ## Workflow
 
 ### 1. Pin the window
-Resolve the request to concrete dates/times in America/Toronto. Note what's special about it: statutory holiday (venues often run holiday hours or close), long weekend, school break, season edges (farms/splash pads/patios opening or closing), sunset time if the ask is evening, weather if outdoor.
+Resolve the request to concrete dates/times (America/Toronto). Note what's special: statutory holiday (holiday hours or closures), long weekend, school break, season edges (farms, splash pads, rinks opening/closing), sunset if the ask is evening, weather if outdoor.
 
-### 2. Read what's already known
-Skim `activities.md`, the relevant `index.html` tab, `summer-camps.json`, and `inbox.md` for venues already researched. Reuse them (with re-verified hours) instead of rediscovering. Evergreen anchors (aquarium, indoor bike park, libraries, EarlyON, indoor playgrounds) are good fallbacks for any window.
-
-### 3. Search wide, then verify narrow
-Run several searches in parallel — one per angle — rather than one long query. Angles:
+### 2. Search wide, then verify narrow
+Run several web searches in parallel — one per angle — rather than one long query:
 - Aggregator roundups for the window (see `references/sources.md`)
-- Seasonal/holiday-specific events (pumpkin, Halloween, maple syrup, holiday lights, Eid, Canada Day, CNE…)
-- Evergreen venues' hours for that specific date
-- Free / library / city programming
-- Shows for ages 2–6 (YPT, TYT, Meridian, Living Arts Centre)
+- Seasonal/holiday events (pumpkin, Halloween, maple syrup, holiday lights, Eid, Canada Day, CNE…)
+- Evergreen venues' hours for that exact date (`references/sources.md` has anchors by category)
+- Free programming: library, EarlyON, city events
+- Shows for ages 2–6
 
-Search pitfalls learned the hard way:
-- **Write "Toronto" or the city name, not "GTA"** — "GTA" pulls Grand Theft Auto results.
-- Several aggregators (todocanada.ca, childslife.ca) **fail on direct fetch** in this environment; rely on search snippets for them and fetch the venue's own site instead.
+Pitfalls learned the hard way:
+- **Say "Toronto" or the city name, not "GTA"** — "GTA" pulls Grand Theft Auto results.
+- Some aggregators (todocanada.ca, childslife.ca) can fail on direct fetch; fall back to search snippets and fetch the venue's own site.
 - Aggregators disagree on dates/hours/prices and often carry last year's data. Prefer the venue's own page; when only aggregators exist, say so and mark **Verify**.
-- Confirm the event is on **this** window — a "2026" listing can still be the wrong weekend (e.g. a pumpkin trail that starts the following week).
+- Confirm the event is on **this** window — a "2026" listing can still be the following weekend.
 
-### 4. Filter against the window and the kids
-For each candidate, check:
-- **Hours overlap**: does it open/stay open across the requested window? For "after 5 pm", a 6 pm close leaves one hour — put it in a "short window" bucket, not the main list. Note last-entry times (often 60–90 min before close).
-- **Age fit**: suitable for Raafay's age *and* the sibling? Scare/haunt events (e.g. Wonderland Haunt, Screemers) are out.
-- **Booking**: timed tickets that sell out → say "book now".
+### 3. Filter against the window and the kids
+- **Hours overlap**: for "after 5 pm", a 6 pm close leaves one hour → "short window" bucket, not the main list. Note last entry (often 60–90 min before close).
+- **Age fit** for both kids. Haunts and scare parks are out.
+- **Booking**: timed tickets that sell out → "book now".
 - **Distance** from M8Y.
-- **Cost**, including the age-pricing trap and whether a pass beats à la carte for small kids (usually it doesn't).
+- **Cost**, including age-pricing cutoffs and whether a pass beats à la carte for small kids (usually not).
 
-### 5. Report
-Lead with the fact pattern (date, holiday, assumptions), then a ranked table. Keep it blunt and scannable:
+### 4. Report
+Lead with the date, any holiday, and assumptions. Then:
 
 ```
 ## Fully viable
@@ -54,22 +50,15 @@ Lead with the fact pattern (date, holiday, assumptions), then a ranked table. Ke
 ## Short window
 | Option | Closes | Verdict |
 ## Ruled out
-- Name — reason (closes 5 pm / next weekend / scare event / unconfirmed for this year)
+- Name — reason (closes 5 pm / next weekend / scare event / not confirmed this year)
 ## Plan
-One concrete sequence (dinner → main activity → fallback).
+One concrete sequence: dinner → main activity → fallback.
 ```
-End with a Sources list of markdown links. Mark anything not confirmed on the venue's own site as **Verify**.
-
-### 6. Persist (only when asked, or when the user says "add it" / "make a tab")
-- New dated scan → new tab in `index.html` using the card markup in `references/planner-format.md`. Put the newest tab first and make it active.
-- Venue ideas worth keeping → `activities.md` entry (format in `references/planner-format.md`).
-- Raw links the user dropped → process `inbox.md`, move into `activities.md`, clear processed items.
-- Confirmed plans → `schedule.md`.
-- Commit on the working branch with a message like `Add Thanksgiving weekend tab: 24 activities for Oct 10-12, 2026`.
+End with a Sources list of links. Mark anything not confirmed on the venue's own site as **Verify**. Keep it blunt and scannable; no filler.
 
 ## Judgment calls
 
-- A late evening with a 2-year-old is costly; prefer things that end by ~8 pm unless asked otherwise.
-- Indoor fallbacks belong on every list for weather.
-- One great nearby option beats three good ones an hour away — rank on fit × proximity, not raw appeal.
-- When unsure about hours, say so plainly; don't paper over aggregator conflicts.
+- Late nights with a 2-year-old are costly; prefer things that end by ~8 pm unless asked otherwise.
+- Always include one indoor fallback.
+- Rank on fit × proximity, not raw appeal — one great option 15 min away beats three good ones an hour out.
+- When hours are uncertain, say so; don't paper over source conflicts.
